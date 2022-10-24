@@ -1,6 +1,32 @@
 const express = require("express");
 const router = express.Router();
 
+// GET Top rated movies
+router.get("/top-rated", async (req, res) => {
+  try {
+    const topRatedMovies = await Workout.find({ "top-rated": true });
+
+    res.status(200).json(topRatedMovies);
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+});
+
+// GET trending movies
+router.get("/trending", async (req, res) => {
+  try {
+    const trendingMovies = await Workout.find({ trending: true });
+
+    res.status(200).json(trendingMovies);
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+});
+
 // GET a movie
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
@@ -21,21 +47,6 @@ router.get("/:id", async (req, res) => {
   res.status(200).json(movie);
 });
 
-// GET Top rated movies
-router.get("/top-rated", async (req, res) => {
-  try {
-    const topRatedMovies = await Workout.find({ "top-rated": true }).sort({ createdAt: -1 });
-
-    res.status(200).json(topRatedMovies);
-  } catch (err) {
-    res.status(500).json({
-      error: err.message,
-    });
-  }
-});
-
-// GET trending movies
-
 // POST a new movie
 router.post("/", async (req, res) => {
   const { title, year, director, story, categories, image } = req.body;
@@ -49,10 +60,9 @@ router.post("/", async (req, res) => {
       story,
       categories,
       image,
-    }); //It returns the new document created (along with an _id)
+    });
     res.status(200).json(movie);
   } catch (err) {
-    // console.log(err);
     res.status(400).json({
       error: err.message,
     });
@@ -87,7 +97,7 @@ router.patch("/:id", async (req, res) => {
 });
 
 //  DELETE a movie
-const deleteMovie = async (req, res) => {
+router.delete("/:id", async (req, res) => {
   const id = req.params.id;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -105,7 +115,7 @@ const deleteMovie = async (req, res) => {
   }
 
   res.status(200).json(movie);
-};
+});
 
 //  GET movie categories
 
