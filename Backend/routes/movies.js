@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
+const Movie = require("../models/movies");
+
 // GET Top rated movies
 router.get("/top-rated", async (req, res) => {
   try {
-    const topRatedMovies = await Workout.find({ "top-rated": true });
+    const topRatedMovies = await Movie.find({ top_rated: true });
 
     res.status(200).json(topRatedMovies);
   } catch (err) {
@@ -17,7 +19,7 @@ router.get("/top-rated", async (req, res) => {
 // GET trending movies
 router.get("/trending", async (req, res) => {
   try {
-    const trendingMovies = await Workout.find({ trending: true });
+    const trendingMovies = await Movie.find({ trending: true });
 
     res.status(200).json(trendingMovies);
   } catch (err) {
@@ -49,7 +51,7 @@ router.get("/:id", async (req, res) => {
 
 // POST a new movie
 router.post("/", async (req, res) => {
-  const { title, year, director, story, categories, image } = req.body;
+  const { title, year, director, story, categories, image, trending, top_rated } = req.body;
 
   // add document to db
   try {
@@ -79,7 +81,7 @@ router.patch("/:id", async (req, res) => {
     });
   }
 
-  const workout = await Movie.findOneAndUpdate(
+  const Movie = await Movie.findOneAndUpdate(
     { _id: id },
     {
       ...req.body,
