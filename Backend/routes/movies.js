@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 
 // GET a movie
+router.get("/", (req, res) => {
+  res.send({
+    message: "WORKS",
+  });
+});
 
 // GET Top rated movies
 
@@ -16,3 +21,5 @@ const router = express.Router();
 //  GET movie categories
 
 //  GET all movies in a category
+
+module.exports = router;
