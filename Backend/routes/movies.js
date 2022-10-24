@@ -118,6 +118,17 @@ router.delete("/:id", async (req, res) => {
 });
 
 //  GET movie categories
+// router.get("/categories", async (req, res) => {
+//   try {
+//     const categories = await Movie.find({}, { categories });
+
+//     res.status(200).json(categories);
+//   } catch (err) {
+//     res.status(500).json({
+//       error: err.message,
+//     });
+//   }
+// });
 
 //  GET all movies in a category
 
