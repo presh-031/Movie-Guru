@@ -19,7 +19,7 @@ router.get("/top-rated", async (req, res) => {
   }
 });
 
-// GET trending movies
+// GET trending movies //works
 router.get("/trending", async (req, res) => {
   try {
     const trendingMovies = await Movie.find({ trending: true });
@@ -32,7 +32,7 @@ router.get("/trending", async (req, res) => {
   }
 });
 
-// GET a movie
+// GET a movie //works
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -76,7 +76,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// UPDATE a movie
+// UPDATE a movie //works
 router.patch("/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -86,7 +86,7 @@ router.patch("/:id", async (req, res) => {
     });
   }
 
-  const Movie = await Movie.findOneAndUpdate(
+  const movie = await Movie.findOneAndUpdate(
     { _id: id },
     {
       ...req.body,
@@ -103,7 +103,7 @@ router.patch("/:id", async (req, res) => {
   res.status(200).json(movie);
 });
 
-//  DELETE a movie
+//  DELETE a movie //works
 router.delete("/:id", async (req, res) => {
   const id = req.params.id;
 
