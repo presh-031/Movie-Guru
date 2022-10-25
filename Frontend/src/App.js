@@ -18,6 +18,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/add-movie" element={<AddMovie />} />
         </Routes>
+        {/* Footer attribution & floating back-to-top btn on every page. */}
       </BrowserRouter>
     </div>
   );

@@ -1,10 +1,21 @@
-import TrendingMovie from "../TrendingMovie/TrendingMovie";
+import MovieCard from "../MovieCard/MovieCard";
 
+import css from "./TrendingMovies.module.css";
 const TrendingMovies = () => {
   return (
-    <section className="container">
-      <p>TrendingMovies</p>
-      <TrendingMovie />
+    <section className={css.container}>
+      <p>Trending Movies</p>
+      <div className={css.cards_container}>
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+      </div>
+      <p>Top Rated</p>
+      <div className={css.cards_container}>
+        <MovieCard />
+        <MovieCard />
+      </div>
     </section>
   );
 };
