@@ -2,6 +2,7 @@ const { default: mongoose } = require("mongoose");
 
 const Movie = require("../models/movies");
 
+// GET Top rated movies
 const getTopRated = async (req, res) => {
   try {
     const topRatedMovies = await Movie.find({ top_rated: true });
@@ -14,6 +15,7 @@ const getTopRated = async (req, res) => {
   }
 };
 
+// GET trending movies
 const getTrendingMovies = async (req, res) => {
   try {
     const trendingMovies = await Movie.find({ trending: true });
@@ -26,6 +28,7 @@ const getTrendingMovies = async (req, res) => {
   }
 };
 
+//  GET movie categories
 const getAllCategories = async (req, res) => {
   try {
     const allCategories = await Movie.find({}, { categories: 1 });
@@ -38,6 +41,7 @@ const getAllCategories = async (req, res) => {
   }
 };
 
+//  GET all movies in a category
 const getMoviesInACategory = async (req, res) => {
   const category = req.params.category;
 
@@ -51,6 +55,7 @@ const getMoviesInACategory = async (req, res) => {
   res.status(200).json(movies);
 };
 
+// GET a movie
 const getAMovie = async (req, res) => {
   const id = req.params.id;
 
@@ -70,6 +75,7 @@ const getAMovie = async (req, res) => {
   res.status(200).json(movie);
 };
 
+// POST a new movie
 const postAMovie = async (req, res) => {
   const { title, year, director, story, categories, image, trending, top_rated, posted } = req.body;
 
@@ -94,6 +100,7 @@ const postAMovie = async (req, res) => {
   }
 };
 
+// UPDATE a movie
 const updateAMovie = async (req, res) => {
   const id = req.params.id;
 
@@ -120,6 +127,7 @@ const updateAMovie = async (req, res) => {
   res.status(200).json(movie);
 };
 
+//  DELETE a movie
 const deleteAMovie = async (req, res) => {
   const id = req.params.id;
 
