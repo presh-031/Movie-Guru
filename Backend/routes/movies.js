@@ -32,7 +32,7 @@ router.get("/trending", async (req, res) => {
   }
 });
 
-//  GET movie categories
+//  GET movie categories //works
 router.get("/categories", async (req, res) => {
   try {
     const allCategories = await Movie.find({}, { categories: 1 });
@@ -45,11 +45,11 @@ router.get("/categories", async (req, res) => {
   }
 });
 
-//  GET all movies in a category
+//  GET all movies in a category //works
 router.get("/:category", async (req, res) => {
   const category = req.params.category;
 
-  const movies = await Movie.find({ category: category });
+  const movies = await Movie.find({ categories: category.toString() });
 
   if (!movies) {
     return res.status(404).json({
