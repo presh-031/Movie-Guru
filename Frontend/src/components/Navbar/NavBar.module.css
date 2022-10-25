@@ -1,4 +1,25 @@
 .header {
-  background-color: red;
+  /* background-color: red; */
   text-align: center;
+  padding: 2rem;
+  color: var(--whitish);
+  /* outline: 1px solid red; */
+  border-bottom: 1px solid var(--grayish);
+}
+.header p {
+  font-size: 4rem;
+  font-weight: 600;
+}
+.header div {
+  display: flex;
+  /* outline: 1px solid red; */
+  justify-content: center;
+  align-items: center;
+  gap: 0 2rem;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+}
+.header div a {
+  color: var(--grayish);
+  text-decoration: none;
 }

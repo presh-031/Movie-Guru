@@ -11,4 +11,11 @@
 }
 :root {
   font-size: 62.5%;
+
+  /* colors */
+  --whitish: #eee;
+  --grayish: #aaa;
+}
+body {
+  background-color: #222;
 }
