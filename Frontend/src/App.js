@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
 import AddMovie from "./pages/AddMovie";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar/NavBar";
 
 import "./App.css";
 
