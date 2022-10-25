@@ -10,7 +10,7 @@ const MovieCard = () => {
       </div>
       <div className={css.card_info}>
         <div className={css.play_btn}>
-          <BsFillPlayFill />
+          <BsFillPlayFill size={35} style={{ color: "black", opacity: 0.8 }} />
         </div>
         <div>
           <p className={css.movie_name}>Pulp Fiction</p>

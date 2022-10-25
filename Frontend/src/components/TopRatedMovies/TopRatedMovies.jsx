@@ -9,6 +9,8 @@ const TopRatedMovies = () => {
       <div className={css.cards_container}>
         <MovieCard />
         <MovieCard />
+        <MovieCard />
+        <MovieCard />
       </div>
     </section>
   );
