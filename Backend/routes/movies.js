@@ -32,6 +32,19 @@ router.get("/trending", async (req, res) => {
   }
 });
 
+//  GET movie categories
+router.get("/categories", async (req, res) => {
+  try {
+    const allCategories = await Movie.find({}, { categories: 1 });
+
+    res.status(200).json(allCategories);
+  } catch (err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+});
+
 // GET a movie //works
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
@@ -123,19 +136,6 @@ router.delete("/:id", async (req, res) => {
 
   res.status(200).json(movie);
 });
-
-//  GET movie categories
-// router.get("/categories", async (req, res) => {
-//   try {
-//     const categories = await Movie.find({}, { categories });
-
-//     res.status(200).json(categories);
-//   } catch (err) {
-//     res.status(500).json({
-//       error: err.message,
-//     });
-//   }
-// });
 
 //  GET all movies in a category
 
