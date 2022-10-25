@@ -138,5 +138,17 @@ router.delete("/:id", async (req, res) => {
 });
 
 //  GET all movies in a category
+router.get("/:category", async (req, res) => {
+  const category = req.params.category;
+
+  const movies = await Workout.find({ category: 1 });
+
+  if (!movies) {
+    return res.status(404).json({
+      error: "No movie",
+    });
+  }
+  res.status(200).json(movies);
+});
 
 module.exports = router;
