@@ -35,6 +35,10 @@ const movieSchema = new Schema({
     type: Boolean,
     required: true,
   },
+  posted: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Movie", movieSchema);

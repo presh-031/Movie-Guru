@@ -45,6 +45,20 @@ router.get("/categories", async (req, res) => {
   }
 });
 
+//  GET all movies in a category
+router.get("/:category", async (req, res) => {
+  const category = req.params.category;
+
+  const movies = await Movie.find({ category: category });
+
+  if (!movies) {
+    return res.status(404).json({
+      error: "No movie",
+    });
+  }
+  res.status(200).json(movies);
+});
+
 // GET a movie //works
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
@@ -67,7 +81,7 @@ router.get("/:id", async (req, res) => {
 
 // POST a new movie //works
 router.post("/", async (req, res) => {
-  const { title, year, director, story, categories, image, trending, top_rated } = req.body;
+  const { title, year, director, story, categories, image, trending, top_rated, posted } = req.body;
 
   // add document to db
   try {
@@ -80,6 +94,7 @@ router.post("/", async (req, res) => {
       image,
       trending,
       top_rated,
+      posted: true,
     });
     res.status(200).json(movie);
   } catch (err) {
@@ -135,20 +150,6 @@ router.delete("/:id", async (req, res) => {
   }
 
   res.status(200).json(movie);
-});
-
-//  GET all movies in a category
-router.get("/:category", async (req, res) => {
-  const category = req.params.category;
-
-  const movies = await Workout.find({ category: 1 });
-
-  if (!movies) {
-    return res.status(404).json({
-      error: "No movie",
-    });
-  }
-  res.status(200).json(movies);
 });
 
 module.exports = router;
