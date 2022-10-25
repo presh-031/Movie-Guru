@@ -1,9 +1,12 @@
 const express = require("express");
+
 const router = express.Router();
+
+const { default: mongoose } = require("mongoose");
 
 const Movie = require("../models/movies");
 
-// GET Top rated movies
+// GET Top rated movies //works
 router.get("/top-rated", async (req, res) => {
   try {
     const topRatedMovies = await Movie.find({ top_rated: true });
@@ -49,7 +52,7 @@ router.get("/:id", async (req, res) => {
   res.status(200).json(movie);
 });
 
-// POST a new movie
+// POST a new movie //works
 router.post("/", async (req, res) => {
   const { title, year, director, story, categories, image, trending, top_rated } = req.body;
 
@@ -62,6 +65,8 @@ router.post("/", async (req, res) => {
       story,
       categories,
       image,
+      trending,
+      top_rated,
     });
     res.status(200).json(movie);
   } catch (err) {
