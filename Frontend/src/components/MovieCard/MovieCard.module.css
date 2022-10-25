@@ -13,7 +13,7 @@
   object-fit: cover;
   /* outline: 1px solid yellow; */
 }
-.movie_card > div:nth-child(2) {
+.movie_card .card_info {
   position: absolute;
   left: 35%;
   /* top: 50%; */

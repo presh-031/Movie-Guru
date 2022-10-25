@@ -8,7 +8,7 @@ const MovieCard = () => {
       <div className={css.poster_container}>
         <img src="https://image.tmdb.org/t/p/w500//aTovumsNlDjof7YVoU5nW2RHaYn.jpg" alt="" />
       </div>
-      <div>
+      <div className={css.card_info}>
         <div className={css.play_btn}>
           <BsFillPlayFill />
         </div>
