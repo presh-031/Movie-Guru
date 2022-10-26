@@ -7,6 +7,7 @@ import AddMovie from "./pages/AddMovie";
 import NavBar from "./components/Navbar/NavBar";
 
 import "./App.css";
+import { useEffect } from "react";
 
 function App() {
   return (
