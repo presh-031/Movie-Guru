@@ -1,5 +1,5 @@
 import Category from "../components/Category/Category";
-import MovieCard from "../components/MovieCard/MovieCard";
+import CurrentCategory from "../components/CurrentCategory/CurrentCategory";
 
 const Categories = () => {
   const categories = {
@@ -27,14 +27,8 @@ const Categories = () => {
         <Category />
         <Category />
       </div>
+      <CurrentCategory />
       {/* The category selected with its movies show below. */}
-      <p>Top Rated</p>
-      <div>
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-      </div>
     </>
   );
 };

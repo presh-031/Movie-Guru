@@ -1,5 +1,12 @@
+import NewMovieForm from "../components/NewMovieForm/NewMovieForm";
+
 const AddMovie = () => {
-  return <div>AddMovie</div>;
+  return (
+    <>
+      <p>Add Movie</p>
+      <NewMovieForm />
+    </>
+  );
 };
 
 export default AddMovie;
