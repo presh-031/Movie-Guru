@@ -19,6 +19,28 @@ const NewMovieForm = () => {
 
   console.count("times : ");
 
+  // Handler for form submission
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const newMovieInfo = {
+      title,
+      director,
+      year,
+      imageUrl,
+      synopsis,
+      action,
+      comedy,
+      drama,
+      fantasy,
+      horror,
+      romance,
+      thriller,
+    };
+
+    console.log(newMovieInfo);
+  }
+
   // Handlers for text inputs and textareas.
   function handleTitleChange(e) {
     setTitle(e.target.value);
@@ -51,7 +73,7 @@ const NewMovieForm = () => {
     });
   }
   function handleDramaChange() {
-    console.log(!comedy);
+    console.log(!drama);
     setDrama((prevChecked) => {
       return !prevChecked;
     });
@@ -82,7 +104,7 @@ const NewMovieForm = () => {
     });
   }
   return (
-    <form>
+    <form onSubmit={handleFormSubmit}>
       <div className={css.first_section}>
         <label htmlFor="title">Title</label>
         <input value={title} onChange={handleTitleChange} type="text" name="title" id="title" />
