@@ -1,0 +1,28 @@
+form {
+  color: var(--whitish);
+  width: 90%;
+  margin: 0 auto;
+}
+
+.first_section {
+}
+.first_section label,
+.first_section input {
+  display: block;
+}
+.first_section input,
+.first_section textarea {
+  outline: none;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.first_section input {
+  height: 4rem;
+}
+.first_section label {
+  font-size: 2rem;
+}
+
+form p {
+  font-size: 2rem;
+}
