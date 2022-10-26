@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { act } from "react-dom/test-utils";
+
 import css from "./NewMovieForm.module.css";
 
 const NewMovieForm = () => {
@@ -7,7 +7,7 @@ const NewMovieForm = () => {
   const [director, setDirector] = useState("");
   const [year, setYear] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [synopsis, setSynopsis] = useState("");
+  const [story, setStory] = useState("");
 
   const [action, setAction] = useState(false);
   const [comedy, setComedy] = useState(false);
@@ -20,7 +20,7 @@ const NewMovieForm = () => {
   console.count("times : ");
 
   // Handler for form submission
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
 
     const newMovieInfo = {
@@ -28,17 +28,33 @@ const NewMovieForm = () => {
       director,
       year,
       imageUrl,
-      synopsis,
-      action,
-      comedy,
-      drama,
-      fantasy,
-      horror,
-      romance,
-      thriller,
+      story,
+      trending,
+      top_rated
+      categories: {
+        action,
+        comedy,
+        drama,
+        fantasy,
+        horror,
+        romance,
+        thriller,
+      },
     };
 
     console.log(newMovieInfo);
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newMovieInfo),
+    };
+    const res = await fetch("/api/movies", options);
+    const data = await res.json();
+
+    if (res.ok) {
+    }
   }
 
   // Handlers for text inputs and textareas.
@@ -54,8 +70,8 @@ const NewMovieForm = () => {
   function handleImageChange(e) {
     setImageUrl(e.target.value);
   }
-  function handleSynopsisChange(e) {
-    setSynopsis(e.target.value);
+  function handleStoryChange(e) {
+    setStory(e.target.value);
   }
 
   // Handlers for checkboxes
@@ -118,9 +134,10 @@ const NewMovieForm = () => {
         <label htmlFor="image">Image URL</label>
         <input value={imageUrl} onChange={handleImageChange} type="text" name="image" id="image" />
 
-        <label htmlFor="synopsis">Synopsis</label>
-        <textarea value={synopsis} onChange={handleSynopsisChange} name="synopsis" id="synopsis" rows="10"></textarea>
+        <label htmlFor="story">story</label>
+        <textarea value={story} onChange={handleStoryChange} name="story" id="story" rows="10"></textarea>
       </div>
+
       {/* Checkboxes section */}
       <p>Categories</p>
       <div className={css.second_section}>
