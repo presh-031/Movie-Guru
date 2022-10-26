@@ -1,0 +1,12 @@
+.category {
+  width: fit-content;
+  padding: 0.8rem 1rem;
+  color: var(--whitish);
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  background-color: #f24040;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 1rem 2rem 0;
+}
