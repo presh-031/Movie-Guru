@@ -21,27 +21,42 @@ const NewMovieForm = () => {
       </div>
       <p>Categories</p>
       <div className={css.second_section}>
-        <input type="checkbox" name="action" id="action" />
-        <label htmlFor="action">Action</label>
+        <div>
+          <input type="checkbox" name="action" id="action" />
+          <label htmlFor="action">Action</label>
+        </div>
 
-        <input type="checkbox" name="comedy" id="comedy" />
-        <label htmlFor="comedy">Comedy</label>
+        <div>
+          <input type="checkbox" name="comedy" id="comedy" />
+          <label htmlFor="comedy">Comedy</label>
+        </div>
 
-        <input type="checkbox" name="drama" id="drama" />
-        <label htmlFor="drama">Drama</label>
+        <div>
+          <input type="checkbox" name="drama" id="drama" />
+          <label htmlFor="drama">Drama</label>
+        </div>
 
-        <input type="checkbox" name="fantasy" id="fantasy" />
-        <label htmlFor="fantasy">Fantasy</label>
+        <div>
+          <input type="checkbox" name="fantasy" id="fantasy" />
+          <label htmlFor="fantasy">Fantasy</label>
+        </div>
 
-        <input type="checkbox" name="horror" id="horror" />
-        <label htmlFor="horror">Horror</label>
+        <div>
+          <input type="checkbox" name="horror" id="horror" />
+          <label htmlFor="horror">Horror</label>
+        </div>
 
-        <input type="checkbox" name="romance" id="romance" />
-        <label htmlFor="romance">Romance</label>
+        <div>
+          <input type="checkbox" name="romance" id="romance" />
+          <label htmlFor="romance">Romance</label>
+        </div>
 
-        <input type="checkbox" name="thriller" id="thriller" />
-        <label htmlFor="thriller">Thriller</label>
+        <div>
+          <input type="checkbox" name="thriller" id="thriller" />
+          <label htmlFor="thriller">Thriller</label>
+        </div>
       </div>{" "}
+      <button>Save movie</button>
     </form>
   );
 };

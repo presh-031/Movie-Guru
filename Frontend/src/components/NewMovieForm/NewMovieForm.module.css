@@ -15,6 +15,9 @@ form {
   outline: none;
   margin-bottom: 2rem;
   width: 100%;
+  border-radius: 10px;
+  border: none;
+  padding: 0.8rem;
 }
 .first_section input {
   height: 4rem;
@@ -25,4 +28,29 @@ form {
 
 form p {
   font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.second_section {
+  display: grid;
+  gap: 1rem 0;
+  grid-template-columns: repeat(3, 1fr);
+}
+.second_section div {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.second_section label {
+  font-size: 1.8rem;
+}
+form button {
+  color: var(--whitish);
+  background-color: #f24040;
+  padding: 1rem 2rem;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  border-radius: 10px;
 }
